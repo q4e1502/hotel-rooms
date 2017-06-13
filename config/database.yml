@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  collation: en_US.UTF-8
+  pool: 5
+  username: postgres
+  password: ''
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: rooms_dev
+
+test:
+  <<: *default
+  database: rooms_test
+
+production:
+  <<: *default
+  host: <%= ENV['CARELY_CHAT_HOST'] %>
+  database: <%= ENV['CARELY_CHAT_DATABASE'] %>
+  username: <%= ENV['CARELY_CHAT_USER'] %>
+  password: <%= ENV['CARELY_CHAT_DATABASE_PASSWORD'] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
