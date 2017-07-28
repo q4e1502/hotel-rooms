@@ -23,5 +23,5 @@ production:
   host: localhost
   database: rooms_production
   username: postgres
-  password: ''
+  password: <%= ENV["PG_PASSWORD"] %>
   pool: 5
