@@ -20,7 +20,7 @@ production:
   adapter: postgresql
   encoding: unicode
   collation: en_US.UTF-8
-  host: 192.168.1.201
+  host: localhost
   database: rooms_production
   username: postgres
   password: ''
