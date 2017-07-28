@@ -23,5 +23,5 @@ production:
   host: 192.168.1.201
   database: rooms_production
   username: postgres
-  password: 123456
+  password: ''
   pool: 5
