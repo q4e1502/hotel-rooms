@@ -63,6 +63,17 @@ namespace :deploy do
     end
   end
 
+  task :restart_unicorn_twice? do
+    invoke 'deploy:restart_unicorn'
+    invoke 'deploy:restart_unicorn'
+  end
+
+  task :restart_unicorn_twice! do
+    invoke 'deploy:restart_unicorn'
+    Rake::Task['deploy:restart_unicorn'].reenable
+    invoke 'deploy:restart_unicorn'
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
